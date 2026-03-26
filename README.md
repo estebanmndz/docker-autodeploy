@@ -1,83 +1,129 @@
-# 🚀 Docker Auto-Deploy (NGINX + Docker Compose)
+# 🚀 Docker Auto Deploy (CI/CD with GitHub Actions)
 
-## 🧠 Descripción
+![Docker](https://img.shields.io/badge/Docker-Containers-blue)
+![GitHub Actions](https://img.shields.io/badge/GitHub-Actions-black)
+![CI/CD](https://img.shields.io/badge/CI/CD-Automation-green)
 
-Este proyecto automatiza la instalación de Docker y el despliegue de un contenedor NGINX utilizando Docker Compose, simulando un flujo básico de despliegue en entornos DevOps.
-
-El script incluye validaciones, logging y ejecución idempotente, permitiendo reutilizarlo en múltiples entornos.
-
----
-
-## 🚀 Caso de uso
-
-* Laboratorios de Docker
-* Entornos de desarrollo rápidos
-* Automatización de despliegues básicos
-* Introducción a prácticas DevOps
+> 💡 Automate the build and deployment of containerized applications using Docker and GitHub Actions
 
 ---
 
-## ⚙️ Características técnicas
+## 🧠 Overview
 
-* Instalación automática de Docker (si no existe)
-* Uso de Docker Compose (plugin moderno)
-* Creación dinámica de `docker-compose.yml`
-* Despliegue automático de contenedor NGINX
-* Logging de ejecución
-* Script idempotente
+This project implements a **CI/CD pipeline** to automatically build and deploy a Dockerized application using GitHub Actions.
 
----
+It simulates a real-world DevOps workflow where code changes trigger automated builds and deployments.
 
-## 🐳 Arquitectura
+**Technologies used:**
 
-```
-Host Linux
-│
-├── Docker Engine
-├── Docker Compose
-│
-└── Contenedor NGINX
-     └── Puerto 80 expuesto
-```
+* Docker
+* GitHub Actions
+* Container Registry (Docker Hub or similar)
 
 ---
 
-## ▶️ Uso
+## 🎯 Objective
 
-```bash id="vbb2f6"
-sudo chmod +x deploy.sh
-sudo ./deploy.sh
+The goal of this project is to:
+
+* Automate application build using Docker
+* Implement a CI/CD pipeline
+* Enable continuous deployment on code changes
+
+---
+
+## 🏗️ Architecture
+
+```id="6u0g1o"
+[Code Push (GitHub)]
+        ↓
+[GitHub Actions Workflow]
+        ↓
+[Docker Build]
+        ↓
+[Docker Image Push]
+        ↓
+[Deployment / Usage]
 ```
 
 ---
 
-## 📊 Output
+## ⚙️ Pipeline Features
 
-```id="0ngm59"
-🚀 Iniciando despliegue Docker...
-📦 Instalando Docker...
-🐳 Desplegando contenedor...
-CONTAINER ID   IMAGE     STATUS
-...
-✅ Despliegue completado
+* Automatic execution on push
+* Docker image build
+* Image publishing to registry
+* Fully automated workflow
+
+---
+
+## 🧩 How It Works
+
+1. Developer pushes code to GitHub
+2. GitHub Actions workflow is triggered
+3. Docker image is built from the Dockerfile
+4. Image is pushed to a container registry
+5. The updated image is ready for deployment
+
+---
+
+## 🔐 Security Considerations
+
+* Uses GitHub Secrets for credentials
+* Avoids hardcoding sensitive data
+* Supports secure authentication with container registry
+
+---
+
+## 🌍 Real-World Use Case
+
+This pipeline can be used to:
+
+* Automate application deployments
+* Standardize build processes
+* Reduce manual intervention in releases
+* Implement DevOps practices in cloud environments
+
+---
+
+## ▶️ Usage
+
+```bash id="3qcmcc"
+git push origin main
 ```
 
-Se genera un fichero `deploy.log` con el detalle de ejecución.
+👉 This will automatically trigger the CI/CD pipeline.
 
 ---
 
-## ⚠️ Consideraciones
+## 📊 Example Workflow Output
 
-* Ejecutar como root
-* Puede requerir reinicio de sesión para aplicar grupo docker
-* Uso recomendado en entornos de laboratorio o desarrollo
+```id="0ik4zi"
+🔄 Workflow triggered
+🐳 Building Docker image...
+📦 Pushing image to registry...
+✅ Deployment pipeline completed
+```
 
 ---
 
-## 🚀 Mejoras futuras
+## 🚀 Future Improvements
 
-* Despliegue de múltiples servicios
-* Integración con CI/CD pipelines
-* Uso de imágenes personalizadas
-* Reverse proxy (NGINX + SSL)
-* Integración con Kubernetes
+* Add deployment to Azure (Container Instances / AKS)
+* Implement multi-stage builds
+* Add testing stage before build
+* Version tagging for images
+* Monitoring and alerts
+
+---
+
+## 📌 Key Takeaways
+
+This project demonstrates:
+
+* CI/CD pipeline implementation
+* Docker-based application deployment
+* Automation of build and release processes
+* DevOps mindset in cloud environments
+
+---
